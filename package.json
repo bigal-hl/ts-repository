@@ -6,7 +6,10 @@
   "keywords": [
     "typescript",
     "orm",
-    "ts-repository"
+    "ts-repository",
+    "repository",
+    "fluent",
+    "query"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
