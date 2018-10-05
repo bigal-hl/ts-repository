@@ -1,13 +1,22 @@
 {
-  "name": "ts-repository",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ts-repository-fluent",
+  "version": "0.0.1",
+  "description": "A basic data repository framework for Typescript. Includes a fluent-style query interface.",
   "main": "source/index.ts",
+  "keywords": [
+    "typescript",
+    "orm",
+    "ts-repository"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jason Hillier <jason1@hillier.us>",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonhillier/ts-repository.git"
+  },
+  "author": "Jason Hillier <jason@paviasystems.com>",
+  "license": "MIT",
   "devDependencies": {
     "@types/mocha": "^2.2.48",
     "chai": "^4.1.2",
