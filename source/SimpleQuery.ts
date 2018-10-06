@@ -288,3 +288,44 @@ export class SimpleQuery<T>
         });
     }
 }
+
+declare global
+{
+    /** SimpleQuery: SQL operation definition
+    * @enum
+    */
+    const enum Operator
+    {
+        Equals = "=",
+        GreaterThan = ">",
+        GreaterThanOrEqual = ">=",
+        LessThan = "<",
+        LessThanOrEqual = "<=",
+        IN = "IN",
+        NOT_Equals = "!=",
+        NOT_IN = "NOT IN",
+        Like = "LIKE",
+        NOT_Like = "NOT LIKE"
+    }
+
+    /** SimpleQuery: SQL join definition
+     * @class
+     */
+    class Join
+    {
+        tableName: string;
+        from: string;
+        to: string;
+        type?: JoinType;
+    }
+
+    /** SimpleQuery: SQL join type definition
+     * @enum
+     */
+    const enum JoinType
+    {
+        INNER = "INNER JOIN",
+        LEFT_OUTER = "LEFT OUTER JOIN",
+        RIGHT_OUTER = "RIGHT OUTER JOIN"
+    }
+}

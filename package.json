@@ -1,8 +1,9 @@
 {
   "name": "ts-repository-fluent",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "A basic data repository framework for Typescript. Includes a fluent-style query interface.",
   "main": "source/index.ts",
+  "typings": "source/index.ts",
   "keywords": [
     "typescript",
     "orm",

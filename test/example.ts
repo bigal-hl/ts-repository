@@ -1,5 +1,4 @@
-import {BaseRepository} from '../source/BaseRepository'
-import {SimpleQuery} from '../source/SimpleQuery';
+import {SimpleQuery,BaseRepository} from '../source/index'
 
 //An example ORM object
 export class TestObject
