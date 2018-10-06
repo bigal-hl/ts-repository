@@ -1,8 +1,8 @@
 {
   "name": "ts-repository-fluent",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A basic data repository framework for Typescript. Includes a fluent-style query interface.",
-  "main": "source/index.ts",
+  "main": "dist/index.js",
   "typings": "source/index.ts",
   "keywords": [
     "typescript",
@@ -13,7 +13,8 @@
     "query"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "./node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
