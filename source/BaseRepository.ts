@@ -10,14 +10,12 @@ type constructor<Z> = new()=>Z;
 export abstract class BaseRepository<T> implements IRepository<T>
 {
     protected _DataType: constructor<T>;
-    protected _PrimaryIdentifier: string;
-    protected _PrimaryGUID: string;
+    protected _DataTypeName: string;
 
     constructor(pDataType: constructor<T>)
     {
         this._DataType = pDataType;
-        this._PrimaryIdentifier = 'ID' + this.dataTypeName;
-        this._PrimaryGUID = 'GUID' + this.dataTypeName;
+        this._DataTypeName = this._DataType.name;
     }
 
     createEntity(): T
@@ -48,15 +46,15 @@ export abstract class BaseRepository<T> implements IRepository<T>
 
     get dataTypeName()
     {
-        return this._DataType.name;
+        return this._DataTypeName;
     }
     get primaryIdentifier(): string
     {
-        return this._PrimaryIdentifier;
+        return 'ID' + this._DataTypeName;
     }
     get primaryGUID(): string
     {
-        return this._PrimaryGUID;
+        return 'GUID' + this._DataTypeName;
     }
 
     /** Create a new query, in context of this request and data type
@@ -90,7 +88,7 @@ export abstract class BaseRepository<T> implements IRepository<T>
             return null;
         
         return this.query(pRequestContext)
-            .where(this._PrimaryIdentifier, pIDRecord)
+            .where(this.primaryIdentifier, pIDRecord)
             .read();
     }
 
