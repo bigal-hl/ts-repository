@@ -29,9 +29,9 @@ export interface IRepository<T>
 
 export interface ICRUDRepository<T> extends IRepository<T>
 {
-    create(pRecord: T, pRequestContext: any): Promise<T>;
-    update(pRecord: T, pRequestContext: any): Promise<T>;
-    upsert(pRecord: T, pRequestContext: any): Promise<T>;
+    create(pRecord: Partial<T>, pRequestContext: any): Promise<T>;
+    update(pRecord: Partial<T>, pRequestContext: any): Promise<T>;
+    upsert(pRecord: Partial<T>, pRequestContext: any): Promise<T>;
     delete(pRecord: T | number, pRequestContext: any): Promise<boolean>;
     //deletes(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<boolean>;
 }
