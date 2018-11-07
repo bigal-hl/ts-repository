@@ -74,26 +74,26 @@ export class SimpleQuery<T>
     /**  Add field to select clause in this query
      * @method
     */
-    select(pFullFieldName: string): SimpleQuery<T>
+    select(pFullFieldName: string, pAlias?: string): SimpleQuery<T>
     {
         if (pFullFieldName.indexOf('(')<0 && pFullFieldName.indexOf('.')<0)
         {
             //if not an aggregate or qualified reference, then make it so
-            this._QueryData.SelectFields.push(`${this._Repository.dataTypeName}.${pFullFieldName}`);
+            this._QueryData.SelectFields.push([`${this._Repository.dataTypeName}.${pFullFieldName}`, pAlias]);
         }
         else
         {
-            this._QueryData.SelectFields.push(pFullFieldName);
+            this._QueryData.SelectFields.push([pFullFieldName, pAlias]);
         }
         return this;
     }
 
     /**  Add field to select clause in this query (type-safe)
-    * @method
-    */
-    selectOn<ORM>(pRemoteTable: constructor<ORM>, pRemoteField: keyof ORM): SimpleQuery<T>
+     * @method
+     */
+    selectOn<ORM>(pRemoteTable: constructor<ORM>, pRemoteField: keyof ORM, pAlias?: string): SimpleQuery<T>
     {
-        return this.select(`${pRemoteTable.name}.${pRemoteField}`);
+        return this.select(`${pRemoteTable.name}.${pRemoteField}`, pAlias);
     }
 
     /**  Add join clause to this query (type-safe)
