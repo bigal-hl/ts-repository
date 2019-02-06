@@ -182,8 +182,13 @@ export class SimpleQuery<T>
             //cannot use equals with value arrays in meadow -- fix it
             pOperator = Operator.IN;
         }
-        else if (Array.isArray(pValue) && pOperator == Operator.NOT_Equals)
+        else if (Array.isArray(pValue) && (pOperator == Operator.NOT_Equals || pOperator == Operator.NOT_IN))
         {
+            if (!pValue.length)
+            {
+                //if there is nothing in the list, then ignore the parameter
+                return this;
+            }
             //cannot use equals with value arrays in meadow -- fix it
             pOperator = Operator.NOT_IN;
         }
