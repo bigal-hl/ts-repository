@@ -122,7 +122,7 @@ export abstract class BaseRepository<T> implements IRepository<T>
             .read();
     }
 
-    abstract async reads(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<Array<T>>
-    abstract async readsLite(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<Array<T>>
-    abstract async count(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<number>
+    abstract reads(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<Array<T>>
+    abstract readsLite(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<Array<T>>
+    abstract count(pQuery: SimpleQuery<T>, pRequestContext: any): Promise<number>
 }
